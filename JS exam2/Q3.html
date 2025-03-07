@@ -55,9 +55,11 @@
             width: 1.5em;
         }
     .customButtoon{
-        /* position: absolute;
-        top: 15%;
-        left: 75%; */
+         position: relative;
+        float: right;
+        top: 4px;
+        right: 10px;
+        
         background-color: rgb(92, 92, 234);
         /* font-size: 1em; */
         color: white;
@@ -65,7 +67,7 @@
         padding: 0 2%;
         border-radius: 8px;
         border: none;
-        margin-left: 72%;
+        /* margin-left: 72%; */
     }
     
     </style>
@@ -107,14 +109,13 @@ function getFromLocal() {
 function addtask() {
     var task = document.getElementById('taskdetails').value;
     var stat = document.getElementById('Status').value;
-    
-
+    if(task && stat !== "Select") {
         var subObj = { task: task, stat: stat };
         obj.push(subObj);
         document.getElementById('taskdetails').value = "";
         document.getElementById('Status').value = "Select";
         setToLocal(obj);
-        render();
+        render();}
 
 }
 
